@@ -22,12 +22,28 @@ class User extends \Illuminate\Database\Eloquent\Model
     }
 
     public function followedBy(){
-        return $this->belongsToMany('\iutnc\tweeterapp\model\User', 'follow', 'follower', 'followee');
+        return $this->belongsToMany('\iutnc\tweeterapp\model\User', 'follow', 'followee', 'follower');
     }
 
     public function follows(){
-        return $this->belongsToMany('\iutnc\tweeterapp\model\User', 'follow', 'followee', 'follower');
+        return $this->belongsToMany('\iutnc\tweeterapp\model\User', 'follow', 'follower', 'followee');
     }
+
+    /*
+     * à refaire
+    public function followsTweets() {
+        $follows = $this->follows()->get();
+        $allFollowsId = [];
+        foreach ($follows as $follow){
+            $allFollowsId[] = $this->primaryKey;
+        }
+        $reqGetAllTweets = \iutnc\tweeterapp\model\Tweet::select()->whereIn('author',$allFollowsId)->orderByDesc('updated_at')->get();
+        return $reqGetAllTweets;
+    }
+    */
+
+
+
 
 
 }

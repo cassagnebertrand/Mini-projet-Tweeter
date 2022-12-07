@@ -9,6 +9,7 @@ body {
     background-color: dimgrey;
 }
 
+
 .theme-backcolor1 {
     background : #0099cc;
 }
@@ -206,6 +207,7 @@ article h3 {
 }
 
 
+
 /* forms */
 
 
@@ -278,3 +280,16 @@ article h3 {
     padding-top : .5rem  ;
 
 }
+
+.flex-container{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ul{
+    padding : 0px;
+    list-style : none;
+    text-decoration : none;
+}
+

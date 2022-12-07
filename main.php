@@ -55,6 +55,10 @@ $router->addRoute('following',
     'view_following',
     '\iutnc\tweeterapp\control\FollowingController',
     AUTH\TweeterAuthentification::ACCESS_LEVEL_USER);
+$router->addRoute('following-tweet',
+    'view_following_tweet',
+    '\iutnc\tweeterapp\control\FollowingTweetController',
+    AUTH\TweeterAuthentification::ACCESS_LEVEL_USER);
 
 $router->setDefaultRoute('list_tweets');
 

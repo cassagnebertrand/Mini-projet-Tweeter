@@ -13,10 +13,15 @@ class FollowingView extends TweeterView implements Renderer
         $user = $this->data;
 
         $follows = $user->follows()->get();
+        $followers = $user->followedBy()->get();
+        $followersCount = $followers->count();
 
 
         $html="<article class='theme-backcolor2'>
-                <h2>Currently following</h2>
+                <h2>Nombre de follower : $followersCount</h2>
+                <div class='flex-container'>
+                <div>
+                <h3>Liste des follows</h3>
                     <ul id='followees'>";
         foreach ($follows as $follow){
             $username = $follow->username;
@@ -25,8 +30,16 @@ class FollowingView extends TweeterView implements Renderer
                         <a href='$userUrl'>$username</a>
                     </li>";
         }
-        $html.="</ul>
-                </article>";
+        $html.="</ul></div><div><h3>Liste des followers</h3><ul>";
+        foreach ($followers as $follower){
+            $username = $follower->username;
+            $userUrl = $this->router->urlFor('user',[['id',$follower->id]]);
+            $html.="<li>
+                        <a href='$userUrl'>$username</a>
+                    </li>";
+        }
+
+$html.="</ul></div></div></article>";
         return $html;
     }
 }

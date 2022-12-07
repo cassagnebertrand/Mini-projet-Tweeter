@@ -3,6 +3,7 @@
 namespace iutnc\tweeterapp\control;
 
 use iutnc\mf\router\Router;
+use iutnc\tweeterapp\auth\TweeterAuthentification;
 use iutnc\tweeterapp\model\Tweet;
 use iutnc\tweeterapp\view\PostView;
 
@@ -20,7 +21,7 @@ class PostController extends \iutnc\mf\control\AbstractController
                 $tweetToPost = htmlspecialchars($_POST['tweet'], ENT_QUOTES, 'UTF-8');
                 $newTweet = new Tweet();
                 $newTweet->text = $tweetToPost;
-                $newTweet->author = $_SESSION['user_profile']['id']; //8 a transformer par un user idantifié
+                $newTweet->author = TweeterAuthentification::connectedUser();
                 $newTweet->save();
                 Router::executeRoute('home');
             }else{

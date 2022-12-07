@@ -18,7 +18,7 @@ class PostView extends TweeterView implements Renderer
                    <textarea type='text' id='tweet' name='tweet' ></textarea>
                </div>
                <div>
-                   <button type='submit'>Send</button>
+                   <button type='submit'>Envoyer <i class='far fa-paper-plane'></i></button>
                </div>
             </form>
        </article>";

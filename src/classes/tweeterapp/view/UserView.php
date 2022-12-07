@@ -47,9 +47,9 @@ class UserView extends TweeterView implements Renderer
                         </div>
                     </div>";
                 }
-                $html .="</article>";
 
             }
+            $html .="</article>";
             return $html;
 
         }else{

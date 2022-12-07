@@ -43,7 +43,7 @@ abstract class TweeterView extends \iutnc\mf\view\AbstractView implements Render
         if (isset($user)){
             return "<nav id='menu' class='theme-backcolor1'>
                         <div id='nav-menu'>
-                           <div class='button theme-backcolor2'><a href='$postUrl'>New</a></div>
+                           <div class='button theme-backcolor2'><a href='$postUrl'>Nouveau tweet</a></div>
                         </div>
                     </nav>";
         }else{
@@ -58,6 +58,9 @@ abstract class TweeterView extends \iutnc\mf\view\AbstractView implements Render
         $loginUrl = $this->router->urlFor('login');
         $followsUrl = $this->router->urlFor('following');
         $logoutUrl = $this->router->urlFor('logout');
+        $followsTweetUrl = $this->router->urlFor('following-tweet');
+
+
 
         $user = TweeterAuthentification::connectedUser();
         if (isset($user)){
@@ -65,13 +68,16 @@ abstract class TweeterView extends \iutnc\mf\view\AbstractView implements Render
                 <h1>MiniTweeTR</h1>
                 <nav id='navbar'>
                     <a class='tweet-control' href='$homeUrl'>
-                        <img alt='home' src=''>
+                        <i class='fas fa-house-user'></i>
+                    </a>
+                    <a class='tweet-control' href='$followsTweetUrl'>
+                        <i class='fas fa-users'></i>
                     </a>
                     <a class='tweet-control' href='$followsUrl'>
-                        <img alt='follows' src=''>
+                        <i class='fas fa-user'></i>
                     </a>
                     <a class='tweet-control' href='$logoutUrl'>
-                        <img alt='logout' src=''>
+                        <i class='fas fa-sign-out-alt'></i>
                     </a>
                 </nav>";
         }else{
@@ -79,11 +85,11 @@ abstract class TweeterView extends \iutnc\mf\view\AbstractView implements Render
                 <h1>MiniTweeTR</h1>
                 <nav id='navbar'>
                     <a class='tweet-control' href='$homeUrl'>
-                        <img alt='home' src=''>
+                        <i class='fas fa-house-user'></i>
                     </a>
 
                     <a class='tweet-control' href='$loginUrl'>
-                        <img alt='login' src=''>
+                        <i class='fas fa-sign-in-alt'></i>
                     </a>
                 </nav>";
         }

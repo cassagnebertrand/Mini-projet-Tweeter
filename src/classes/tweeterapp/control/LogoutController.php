@@ -13,6 +13,7 @@ class LogoutController extends \iutnc\mf\control\AbstractController
     {
 
             TweeterAuthentification::logout();
+            session_destroy();
             Router::Executeroute('home');
 
     }

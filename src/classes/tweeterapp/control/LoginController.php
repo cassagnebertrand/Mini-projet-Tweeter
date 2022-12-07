@@ -24,7 +24,7 @@ class LoginController extends \iutnc\mf\control\AbstractController
 
                     TweeterAuthentification::login($_POST['username'],$_POST['password']);
 
-                    Router::Executeroute('following');
+                    Router::Executeroute('following-tweet');
                 }else{
                     throw new AuthentificationException('Un champ est vide');
                 }
