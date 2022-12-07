@@ -14,8 +14,8 @@ class LoginView extends TweeterView implements Renderer
         return "
         <article class='theme-backcolor2'>
             <form action='$loginUrl' method='post'>
-                <input class='forms-text' type='text' name='username' placeholder='username'>
-                <input class='forms-text' type='password' name='password' placeholder='password'>
+                <input class='forms-text' type='text' name='username' placeholder='Pseudo'>
+                <input class='forms-text' type='password' name='password' placeholder='Mot de passe'>
                 
                 <button class='forms-button' name='login_button' type='submit'>Se connecter</button>
             </form>

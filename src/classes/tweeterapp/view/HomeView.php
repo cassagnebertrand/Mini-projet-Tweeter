@@ -15,7 +15,7 @@ class HomeView extends TweeterView implements Renderer
 
         $tweets = $this->data;
 
-        $html='<article class="theme-backcolor2"><h2>Latest Tweets</h2>';
+        $html='<article class="theme-backcolor2"><h2>Derniers Tweets</h2>';
         foreach ($tweets as $tweet){
             $author = $tweet->author()->first();
             $tweetUrl = $this->router->urlFor('view',[['id',$tweet->id]]);
